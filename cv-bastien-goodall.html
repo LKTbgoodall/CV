@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Bastien Goodall</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --ink: #0c0c0f;
+        --ink-90: #1a1a22;
+        --ink-80: #2a2a35;
+        --ink-60: #52526a;
+        --ink-40: #8888a0;
+        --ink-20: #c4c4d4;
+        --ink-10: #e8e8f0;
+        --ink-05: #f4f4f8;
+        --paper: #fafaf9;
+        --accent: #d4a853;
+        --accent-dim: #b8923f;
+        --accent-glow: rgba(212, 168, 83, 0.12);
+        --accent-bright: #e8c06a;
+        --cyan: #4ecdc4;
+        --cyan-dim: rgba(78, 205, 196, 0.1);
+        --green: #22c55e;
+        --green-dim: rgba(34, 197, 94, 0.1);
+        --indigo: #6366f1;
+        --indigo-dim: rgba(99, 102, 241, 0.1);
+        --rose: #f43f5e;
+        --rose-dim: rgba(244, 63, 94, 0.1);
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        color: var(--ink);
+        background: #e4e4e8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      @media print {
+        body {
+          background: white;
+          margin: 0;
+          padding: 0;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          max-height: 297mm;
+          overflow: hidden;
+        }
+        .page,
+        .page * {
+          page-break-inside: avoid;
+        }
+        .grain::before {
+          display: none;
+        }
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 72mm 1fr;
+        overflow: hidden;
+        position: relative;
+        box-shadow:
+          0 4px 6px rgba(0, 0, 0, 0.05),
+          0 20px 40px rgba(0, 0, 0, 0.1),
+          0 40px 80px rgba(0, 0, 0, 0.08);
+      }
+
+      .panel-left {
+        background: var(--ink);
+        color: var(--ink-20);
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .panel-left::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .panel-left::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          var(--accent) 15%,
+          var(--accent) 35%,
+          transparent 50%,
+          var(--accent-dim) 70%,
+          transparent 100%
+        );
+        z-index: 2;
+      }
+
+      .panel-left-inner {
+        position: relative;
+        z-index: 3;
+        padding: 30px 18px 24px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .identity {
+        text-align: center;
+        margin-bottom: 26px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--ink-80);
+      }
+
+      .avatar {
+        width: 82px;
+        height: 82px;
+        border-radius: 50%;
+        margin: 0 auto 14px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 1.5px solid var(--accent);
+        opacity: 0.6;
+      }
+
+      .avatar-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background: var(--ink-80);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar-inner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .avatar-monogram {
+        font-family: "Syne", sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--accent);
+        letter-spacing: -1px;
+      }
+
+      .identity-role {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7.5px;
+        font-weight: 500;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        margin-top: 2px;
+      }
+
+      .side-section {
+        margin-bottom: 20px;
+      }
+
+      .side-label {
+        font-family: "Syne", sans-serif;
+        font-size: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--accent);
+        margin-bottom: 12px;
+        position: relative;
+        padding-left: 14px;
+      }
+
+      .side-label::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 1px;
+        background: var(--accent);
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 9px;
+        font-size: 8px;
+        color: var(--ink-20);
+        line-height: 1.3;
+      }
+
+      .contact-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: var(--ink-80);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .contact-icon svg {
+        width: 11px;
+        height: 11px;
+        fill: var(--accent);
+        opacity: 0.8;
+      }
+
+      .skill-group {
+        margin-bottom: 10px;
+      }
+
+      .skill-group-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 6.5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--ink-40);
+        margin-bottom: 6px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7px;
+        font-weight: 500;
+        padding: 3px 8px;
+        border-radius: 3px;
+        border: 1px solid var(--ink-80);
+        color: var(--ink-20);
+        background: transparent;
+      }
+
+      .tag--accent {
+        border-color: rgba(212, 168, 83, 0.3);
+        color: var(--accent-bright);
+        background: rgba(212, 168, 83, 0.06);
+      }
+
+      .tag--cyan {
+        border-color: rgba(78, 205, 196, 0.25);
+        color: var(--cyan);
+        background: rgba(78, 205, 196, 0.05);
+      }
+
+      .tag--green {
+        border-color: rgba(34, 197, 94, 0.25);
+        color: var(--green);
+        background: rgba(34, 197, 94, 0.05);
+      }
+
+      .tag--indigo {
+        border-color: rgba(99, 102, 241, 0.25);
+        color: var(--indigo);
+        background: rgba(99, 102, 241, 0.05);
+      }
+
+      .tag--rose {
+        border-color: rgba(244, 63, 94, 0.25);
+        color: var(--rose);
+        background: rgba(244, 63, 94, 0.05);
+      }
+
+      .soft-item {
+        font-size: 8px;
+        color: var(--ink-20);
+        margin-bottom: 6px;
+        padding-left: 12px;
+        position: relative;
+        line-height: 1.4;
+      }
+
+      .soft-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 5px;
+        height: 1px;
+        background: var(--accent-dim);
+      }
+
+      .lang-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+        font-size: 8.5px;
+      }
+
+      .lang-name {
+        color: var(--ink-20);
+      }
+
+      .lang-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7px;
+        font-weight: 500;
+        padding: 2px 8px;
+        border-radius: 2px;
+        background: rgba(212, 168, 83, 0.1);
+        color: var(--accent);
+        letter-spacing: 0.5px;
+      }
+
+      .panel-right {
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .panel-right::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .panel-right-inner {
+        position: relative;
+        z-index: 2;
+        padding: 30px 28px 24px 26px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .header {
+        margin-bottom: 22px;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--ink-10);
+        position: relative;
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .header-name {
+        font-family: "Syne", sans-serif;
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--ink);
+        line-height: 1;
+        letter-spacing: -1px;
+        margin-bottom: 2px;
+      }
+
+      .header-name span {
+        color: var(--accent-dim);
+      }
+
+      .header-tagline {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        font-weight: 500;
+        color: var(--ink-60);
+        letter-spacing: 0.5px;
+        margin-top: 6px;
+      }
+
+      .header-bio {
+        font-size: 8.5px;
+        color: var(--ink-60);
+        line-height: 1.65;
+        margin-top: 10px;
+        max-width: 98%;
+      }
+
+      .header-pills {
+        display: flex;
+        gap: 6px;
+        margin-top: 12px;
+      }
+
+      .pill {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7px;
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 2px;
+        letter-spacing: 0.3px;
+      }
+
+      .pill--gold {
+        background: var(--accent-glow);
+        color: var(--accent-dim);
+        border: 1px solid rgba(212, 168, 83, 0.2);
+      }
+
+      .pill--dark {
+        background: var(--ink);
+        color: var(--ink-20);
+      }
+
+      .pill--outline {
+        background: transparent;
+        color: var(--ink-60);
+        border: 1px solid var(--ink-10);
+      }
+
+      .section {
+        margin-bottom: 18px;
+      }
+
+      .section-heading {
+        font-family: "Syne", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--ink);
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-heading::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, var(--ink-10), transparent);
+      }
+
+      .project {
+        padding: 14px 16px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        position: relative;
+        border: 1px solid var(--ink-10);
+        background: white;
+      }
+
+      .project::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        bottom: 12px;
+        width: 3px;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .project--gold::before {
+        background: var(--accent);
+      }
+      .project--cyan::before {
+        background: var(--cyan);
+      }
+
+      .project-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+
+      .project-title {
+        font-family: "Syne", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .project-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 6.5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 3px 10px;
+        border-radius: 2px;
+      }
+
+      .project-badge--perso {
+        background: var(--green-dim);
+        color: var(--green);
+        border: 1px solid rgba(34, 197, 94, 0.15);
+      }
+
+      .project-badge--sco {
+        background: var(--cyan-dim);
+        color: var(--cyan);
+        border: 1px solid rgba(78, 205, 196, 0.15);
+      }
+
+      .project-desc {
+        font-size: 8.5px;
+        color: var(--ink-60);
+        line-height: 1.55;
+        margin-bottom: 8px;
+      }
+
+      .project-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 6px;
+      }
+
+      .project-stack span {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 6.5px;
+        font-weight: 500;
+        padding: 2.5px 7px;
+        border-radius: 2px;
+        background: var(--ink-05);
+        color: var(--ink-60);
+        border: 1px solid var(--ink-10);
+      }
+
+      .tl-item {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 14px;
+      }
+
+      .tl-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: -14px;
+        width: 1px;
+        background: var(--ink-10);
+      }
+
+      .tl-item:last-child::before {
+        bottom: 0;
+      }
+
+      .tl-item::after {
+        content: "";
+        position: absolute;
+        left: -3px;
+        top: 5px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        border: 1.5px solid var(--accent);
+        background: var(--paper);
+      }
+
+      .tl-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2px;
+      }
+
+      .tl-role {
+        font-family: "Syne", sans-serif;
+        font-size: 10.5px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .tl-date {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7px;
+        font-weight: 500;
+        color: var(--accent-dim);
+        background: var(--accent-glow);
+        padding: 2px 8px;
+        border-radius: 2px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        letter-spacing: 0.3px;
+      }
+
+      .tl-place {
+        font-size: 8.5px;
+        color: var(--ink-40);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .tl-bullets {
+        list-style: none;
+      }
+
+      .tl-bullets li {
+        font-size: 8px;
+        color: var(--ink-60);
+        padding-left: 10px;
+        position: relative;
+        line-height: 1.55;
+        margin-bottom: 2px;
+      }
+
+      .tl-bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 4px;
+        height: 1px;
+        background: var(--accent);
+      }
+
+      .edu-item {
+        margin-bottom: 10px;
+      }
+
+      .edu-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 2px;
+      }
+
+      .edu-year {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 7px;
+        font-weight: 500;
+        color: var(--accent-dim);
+        background: var(--accent-glow);
+        padding: 2px 8px;
+        border-radius: 2px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        letter-spacing: 0.3px;
+      }
+
+      .edu-title {
+        font-family: "Syne", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.2;
+      }
+
+      .edu-school {
+        font-size: 8px;
+        color: var(--ink-40);
+        margin-top: 1px;
+      }
+
+      .edu-detail {
+        font-size: 7.5px;
+        color: var(--ink-60);
+        margin-top: 2px;
+        line-height: 1.4;
+      }
+
+      .card-grid {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        flex: 1;
+        min-width: 120px;
+        background: white;
+        border: 1px solid var(--ink-10);
+        border-radius: 6px;
+        padding: 10px 12px;
+        position: relative;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 10px;
+        bottom: 10px;
+        width: 3px;
+        border-radius: 0 3px 3px 0;
+      }
+
+      .card--indigo::before {
+        background: var(--indigo);
+      }
+
+      .card--rose::before {
+        background: var(--rose);
+      }
+
+      .card-title {
+        font-family: "Syne", sans-serif;
+        font-size: 9.5px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+
+      .card-desc {
+        font-size: 7.5px;
+        color: var(--ink-60);
+      }
+
+      .card-tags {
+        display: flex;
+        gap: 4px;
+        margin-top: 6px;
+        flex-wrap: wrap;
+      }
+
+      .card-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 6px;
+        padding: 2px 6px;
+        border-radius: 2px;
+        background: var(--ink-05);
+        color: var(--ink-60);
+        border: 1px solid var(--ink-10);
+      }
+
+      .qrcode-wrapper {
+        margin: 0 0 20px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .qrcode-wrapper img {
+        width: 130px;
+        height: 130px;
+        padding: 6px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 1px solid var(--ink-80);
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="panel-left">
+        <div class="panel-left-inner">
+          <div class="identity">
+            <div class="avatar">
+              <div class="avatar-inner">
+                <img
+                  src="moi.png"
+                  alt="Bastien Goodall"
+                  onerror="
+                    this.style.display = 'none';
+                    this.parentElement.innerHTML =
+                      '<div class=\'avatar-monogram\'>BG</div>';
+                  "
+                />
+              </div>
+            </div>
+            <div class="identity-role">Développeur Fullstack</div>
+          </div>
+
+          <div class="side-section">
+            <div class="side-label">Contact</div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </div>
+              bastien.goodall1@gmail.com
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.46.57 3.58.11.35.03.74-.24 1.01l-2.21 2.2z"
+                  />
+                </svg>
+              </div>
+              +33 7 82 64 69 91
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"
+                  />
+                </svg>
+              </div>
+              Bussy-Saint-Georges (77)
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                  />
+                </svg>
+              </div>
+              bgoodall-portfolio.vercel.app
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  />
+                </svg>
+              </div>
+              github.com/LKTbgoodall
+            </div>
+          </div>
+
+          <div class="side-section">
+            <div class="side-label">Stack</div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">Langages</div>
+              <div class="tags">
+                <span class="tag tag--accent">HTML5</span>
+                <span class="tag tag--accent">CSS</span>
+                <span class="tag tag--accent">JavaScript</span>
+                <span class="tag tag--accent">C</span>
+                <span class="tag tag--accent">Lua</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">Backend & BDD</div>
+              <div class="tags">
+                <span class="tag tag--cyan">API REST</span>
+                <span class="tag tag--cyan">MySQL</span>
+                <span class="tag tag--cyan">PHP</span>
+                <span class="tag tag--cyan">Supabase</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">Frameworks & Libs</div>
+              <div class="tags">
+                <span class="tag tag--indigo">Vite.js</span>
+                <span class="tag tag--indigo">React</span>
+                <span class="tag tag--indigo">Bootstrap 5</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">Outils</div>
+              <div class="tags">
+                <span class="tag tag--green">Git & GitHub</span>
+                <span class="tag tag--green">DBeaver</span>
+                <span class="tag tag--green">VS Code</span>
+                <span class="tag tag--green">Cisco</span>
+                <span class="tag tag--green">Pack Office</span>
+                <span class="tag tag--green">Linux / Bash</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <div class="skill-group-label">Méthodes</div>
+              <div class="tags">
+                <span class="tag tag--rose">UML</span>
+                <span class="tag tag--rose">MERISE</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="side-section">
+            <div class="side-label">Qualités</div>
+            <div class="soft-item">Curieux & autonome</div>
+            <div class="soft-item">Sens du détail & rigueur</div>
+            <div class="soft-item">Prend des initiatives</div>
+            <div class="soft-item">Sociable & travail en équipe</div>
+          </div>
+
+          <div class="side-section">
+            <div class="side-label">Loisirs</div>
+            <div class="soft-item">
+              Jeux vidéo (Création, Roleplay & Réflexion)
+            </div>
+            <div class="soft-item">
+              Jeux de société (Jeux de stratégie et de plateau)
+            </div>
+            <div class="soft-item">Danse</div>
+            <div class="soft-item">Cuisine</div>
+          </div>
+
+          <div class="side-section">
+            <div class="side-label">Langues</div>
+            <div class="lang-row">
+              <span class="lang-name">Français</span>
+              <span class="lang-badge">NATIF</span>
+            </div>
+            <div class="lang-row">
+              <span class="lang-name">Anglais</span>
+              <span class="lang-badge">B1</span>
+            </div>
+          </div>
+          <div class="qrcode-wrapper">
+            <img src="Portfolio.png" alt="QR Code" />
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-right">
+        <div class="panel-right-inner">
+          <header class="header">
+            <h1 class="header-name">BASTIEN<br /><span>GOODALL</span></h1>
+            <div class="header-tagline">
+              // Étudiant Programmation &mdash; Recherche Alternance
+            </div>
+            <p class="header-bio">
+              Étudiant en 1ère année de Bachelor en Architecture Logicielle à
+              l'École 89 – Ferrières-en-Brie, je suis passionné par la création
+              d'applications web concrètes : application simple pour automatiser
+              certaines de mes tâches, site de cafétéria avec React et Supabase,
+              projets système en C. Je recherche une alternance dans ce même
+              domaine à partir de septembre 2026.
+            </p>
+            <div class="header-pills">
+              <span class="pill pill--gold">Alternance sept. 2026</span>
+              <span class="pill pill--dark"
+                >3 jours entreprise / 2 jours ecole
+              </span>
+              <span class="pill pill--outline">Île-de-France</span>
+            </div>
+          </header>
+
+          <section class="section">
+            <div class="section-heading">Projets</div>
+
+            <div class="project project--gold">
+              <div class="project-top">
+                <span class="project-title">Résolveur de Labyrinthes</span>
+                <span class="project-badge project-badge--sco">Scolaire</span>
+              </div>
+              <div class="project-desc">
+                Programme en C résolvant des labyrinthes représentés dans un
+                fichier texte via le terminal, grâce à la méthode Pledge (main
+                gauche). Lecture de fichier, parsing de grille, navigation
+                algorithmique sans utiliser de bibliothèques standard sans les
+                avoir recrée.
+              </div>
+              <div class="project-stack">
+                <span>Langage C</span>
+                <span>Shell</span>
+                <span>Algorithmique</span>
+              </div>
+            </div>
+
+            <div class="project project--cyan">
+              <div class="project-top">
+                <span class="project-title">Site de Cafétéria Scolaire</span>
+                <span class="project-badge project-badge--perso"
+                  >Personnel</span
+                >
+              </div>
+              <div class="project-desc">
+                Application web complète pour la gestion des commandes et menus
+                d'une cafétéria scolaire. Interface moderne avec
+                authentification, gestion des commandes en temps réel et tableau
+                de bord administrateur.
+              </div>
+              <div class="project-stack">
+                <span>React</span>
+                <span>Supabase</span>
+                <span>SQL</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">Expérience</div>
+
+            <div class="tl-item">
+              <div class="tl-top">
+                <span class="tl-role"
+                  >Assistant Administratif & Commercial</span
+                >
+                <span class="tl-date">2022</span>
+              </div>
+              <div class="tl-place">RamiAudio &middot; Stage</div>
+              <ul class="tl-bullets">
+                <li>
+                  Conception et mise en place de formulaires clients pour
+                  optimiser la collecte de données
+                </li>
+                <li>
+                  Création de supports de communication visuelle (cartes de
+                  vœux) pour la relation client
+                </li>
+                <li>
+                  Gestion de l'inventaire et suivi des niveaux de stock sur
+                  Excel
+                </li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-top">
+                <span class="tl-role">Coordinateur Événementiel</span>
+                <span class="tl-date">2020 - Aujourd'hui</span>
+              </div>
+              <div class="tl-place">ArtStetik &middot; Bénévole</div>
+              <ul class="tl-bullets">
+                <li>
+                  Coordination logistique des artistes en backstage, pointage et
+                  gestion du timing.
+                </li>
+                <li>
+                  Maintien d'un environnement calme en loges, gestion du stress
+                  des participants, et aide à la communication.
+                </li>
+                <li>
+                  Prise en charge des spectateurs, gestion de leur placement et
+                  gestion des entrées.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">Formation</div>
+
+            <div class="edu-item">
+              <div class="edu-top">
+                <span class="edu-title"
+                  >Bachelor Architecture Logicielle – Deep Tech</span
+                >
+                <span class="edu-year">2025 &mdash; Aujourd'hui</span>
+              </div>
+              <div class="edu-school">
+                École 89 &middot; Ferrières-en-Brie (77)
+              </div>
+              <div class="edu-detail">
+                Dév. web, API, bases de données, gestion de projet, IA
+              </div>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-top">
+                <span class="edu-title">Baccalauréat Général</span>
+                <span class="edu-year">2022 &mdash; 2025</span>
+              </div>
+              <div class="edu-school">
+                Lycée Martin Luther King &middot; Île-de-France
+              </div>
+              <div class="edu-detail">
+                Spécialités Mathématiques &amp; Physique-Chimie
+              </div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-heading">Open Source & Communauté</div>
+            <div class="card-grid">
+              <div class="card card--indigo">
+                <div class="card-title">Outils Communautaires</div>
+                <div class="card-desc">
+                  Développement et mise à disposition de scripts et de
+                  plateformes d'automatisation (ex: recrutement) pour faciliter
+                  la gestion de communautés de jeu (serveurs GTA RP).
+                </div>
+                <div class="card-tags">
+                  <span class="card-tag">Scripts</span>
+                  <span class="card-tag">Automatisation</span>
+                </div>
+              </div>
+              <div class="card card--rose">
+                <div class="card-title">Partage & Entraide</div>
+                <div class="card-desc">
+                  Mise en open source de projets personnels et utilitaires sur
+                  GitHub. Participation à de l'entraide technique et au
+                  developpement collaboratif.
+                </div>
+                <div class="card-tags">
+                  <span class="card-tag">GitHub</span>
+                  <span class="card-tag">Code Review</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
